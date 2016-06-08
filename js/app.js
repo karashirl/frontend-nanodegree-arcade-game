@@ -5,9 +5,9 @@ var Enemy = function(x,y,speed) {
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
-    this.x=x;
-    this.y=y;
-    this.speed=speed;
+    this.x = x;
+    this.y = y;
+    this.speed = speed;
     this.sprite = 'images/enemy-bug.png';
 };
 
@@ -32,23 +32,40 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 
-var Player = function() {
+var Player = function(x,y) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.player = 'images/char-boy.png';
-    this.x = 200;
-    this.y = 400;
+    this.x = x;
+    this.y = y;
 };
 
-// Update the enemy's position, required method for game
+// Update the player's position, required method for game
 // Parameter: dt, a time delta between ticks
 Player.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+};
+
+Player.prototype.handleInput = function(key) {
+    switch(key) {
+        case 'left':
+        this.x = this.x - 100;
+        break;
+        case 'up':
+        this.y = this.y - 100;
+        break;
+        case 'right':
+        this.x = this.x + 100;
+        break;
+        case 'down':
+        this.y = this.y + 100;
+        break;
+    }
 };
 
 // Draw the player on the screen, required method for game
@@ -66,8 +83,10 @@ var enemy3 = new Enemy(-500,140,125);
 var enemy4 = new Enemy(-800,140,250);
 var enemy5 = new Enemy(-200,60,150);
 var enemy6 = new Enemy(-700,60,200);
+
 var allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5, enemy6];
-var player = new Player();
+
+var player = new Player(200, 400);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
