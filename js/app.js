@@ -49,6 +49,20 @@ Player.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    if(this.x > 400) {
+        this.x = 400;
+    } else if(this.x < 0) {
+        this.x = 0;
+    };
+
+    if(this.y > 385) {
+        this.y = 385;
+    } else if(this.y < 45) {
+        this.y = -40;
+        setTimeout( function() {
+            player.reset();
+        }, 400);
+    };
 };
 
 Player.prototype.handleInput = function(key) {
@@ -57,15 +71,20 @@ Player.prototype.handleInput = function(key) {
         this.x = this.x - 100;
         break;
         case 'up':
-        this.y = this.y - 100;
+        this.y = this.y - 85;
         break;
         case 'right':
         this.x = this.x + 100;
         break;
         case 'down':
-        this.y = this.y + 100;
+        this.y = this.y + 85;
         break;
     }
+};
+
+Player.prototype.reset = function() {
+    this.x = 200;
+    this.y = 385;
 };
 
 // Draw the player on the screen, required method for game
@@ -86,7 +105,7 @@ var enemy6 = new Enemy(-700,60,200);
 
 var allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5, enemy6];
 
-var player = new Player(200, 400);
+var player = new Player(200, 385);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
