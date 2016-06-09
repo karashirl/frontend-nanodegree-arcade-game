@@ -1,3 +1,5 @@
+'use strict';
+
 // Enemies our player must avoid
 var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
@@ -57,23 +59,19 @@ Player.prototype.update = function(dt) {
 
     // Blocks player from leaving left/right sides of canvas
     if (this.x > 400) {
-        this.x = 400 * dt;
+        this.x = 400;
     } else if (this.x < 0) {
-        this.x = 0 * dt;
+        this.x = 0;
     }
 
     // Blocks player from leaving bottom of canvas
     if (this.y > 385) {
-        this.y = 385 * dt;
+        this.y = 385;
 
-        // Blcoks player for leaving top of canvas before reset
+    // Resets game if player reaches water
     } else if (this.y < 45) {
-        this.y = (-40 * dt);
-        // Resets game if player reaches water
-        setTimeout(function() {
-            alert('You won!');
-            player.reset();
-        }, 400);
+        alert('You won!');
+        this.reset();
     }
 };
 
