@@ -5,10 +5,11 @@ var Enemy = function(x,y,speed) {
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
+    this.sprite = 'images/enemy-bug.png';
+    // Set initial location and speed of enemies
     this.x = x;
     this.y = y;
     this.speed = speed;
-    this.sprite = 'images/enemy-bug.png';
 };
 
 // Update the enemy's position, required method for game
@@ -17,10 +18,13 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+
+    // Initiates movement of enemy
     this.x = this.x + (this.speed * dt);
+    // Resets position of enemy to random position when enemy leaves canvas
     if (this.x > 505) {
         this.x = Math.random()*-500 - 400;
-    };
+    }
 };
 
 // Draw the enemy on the screen, required method for game
@@ -39,6 +43,7 @@ var Player = function(x,y) {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.player = 'images/char-boy.png';
+    // Set initial location of player
     this.x = x;
     this.y = y;
 };
@@ -49,22 +54,30 @@ Player.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    if(this.x > 400) {
-        this.x = 400;
-    } else if(this.x < 0) {
-        this.x = 0;
-    };
 
+    // Blocks player from leaving left/right sides of canvas
+    if(this.x > 400) {
+        this.x = 400 * dt;
+    } else if(this.x < 0) {
+        this.x = 0 * dt;
+    }
+
+    // Blocks player from leaving bottom of canvas
     if(this.y > 385) {
-        this.y = 385;
+        this.y = 385 * dt;
+
+    // Blcoks player for leaving top of canvas before reset
     } else if(this.y < 45) {
-        this.y = -40;
+        this.y = (-40 * dt);
+        // Resets game if player reaches water
         setTimeout( function() {
+            alert('You won!');
             player.reset();
         }, 400);
-    };
+    }
 };
 
+// Moves player with arrow keys
 Player.prototype.handleInput = function(key) {
     switch(key) {
         case 'left':
@@ -82,6 +95,7 @@ Player.prototype.handleInput = function(key) {
     }
 };
 
+// Resets game
 Player.prototype.reset = function() {
     this.x = 200;
     this.y = 385;

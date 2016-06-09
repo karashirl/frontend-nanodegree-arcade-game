@@ -95,18 +95,20 @@ var Engine = (function(global) {
             enemy.update(dt);
         });
         player.update();
-        ctx.clearRect(0,0,canvas.width,canvas.height);
+        ctx.clearRect(0,0,canvas.width,canvas.height); // Clears top of player head remaining rendered above top tiles
     }
 
+    // Resets game upon enemy-player collision
     function checkCollisions() {
         for (var i = 0; i < allEnemies.length; i++) {
             if (player.x < (allEnemies[i].x + 75) &&
                 player.x + 83 > allEnemies[i].x &&
                 player.y < allEnemies[i].y + 50 &&
                 player.y + 50 > allEnemies[i].y) {
-                player.reset(); // collision detected!
-            };
-        };
+                    alert('You lost!'); // Collision detected!
+                    player.reset();
+            }
+        }
     }
 
     /* This function initially draws the "game level", it will then call
