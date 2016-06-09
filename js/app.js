@@ -1,5 +1,5 @@
 // Enemies our player must avoid
-var Enemy = function(x,y,speed) {
+var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -23,7 +23,7 @@ Enemy.prototype.update = function(dt) {
     this.x = this.x + (this.speed * dt);
     // Resets position of enemy to random position when enemy leaves canvas
     if (this.x > 505) {
-        this.x = Math.random()*-500 - 400;
+        this.x = Math.random() * -500 - 400;
     }
 };
 
@@ -36,7 +36,7 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 
-var Player = function(x,y) {
+var Player = function(x, y) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -56,21 +56,21 @@ Player.prototype.update = function(dt) {
     // all computers.
 
     // Blocks player from leaving left/right sides of canvas
-    if(this.x > 400) {
+    if (this.x > 400) {
         this.x = 400 * dt;
-    } else if(this.x < 0) {
+    } else if (this.x < 0) {
         this.x = 0 * dt;
     }
 
     // Blocks player from leaving bottom of canvas
-    if(this.y > 385) {
+    if (this.y > 385) {
         this.y = 385 * dt;
 
-    // Blcoks player for leaving top of canvas before reset
-    } else if(this.y < 45) {
+        // Blcoks player for leaving top of canvas before reset
+    } else if (this.y < 45) {
         this.y = (-40 * dt);
         // Resets game if player reaches water
-        setTimeout( function() {
+        setTimeout(function() {
             alert('You won!');
             player.reset();
         }, 400);
@@ -79,19 +79,19 @@ Player.prototype.update = function(dt) {
 
 // Moves player with arrow keys
 Player.prototype.handleInput = function(key) {
-    switch(key) {
+    switch (key) {
         case 'left':
-        this.x = this.x - 100;
-        break;
+            this.x = this.x - 100;
+            break;
         case 'up':
-        this.y = this.y - 85;
-        break;
+            this.y = this.y - 85;
+            break;
         case 'right':
-        this.x = this.x + 100;
-        break;
+            this.x = this.x + 100;
+            break;
         case 'down':
-        this.y = this.y + 85;
-        break;
+            this.y = this.y + 85;
+            break;
     }
 };
 
@@ -110,12 +110,12 @@ Player.prototype.render = function() {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-var enemy1 = new Enemy(-650,220,325);
-var enemy2 = new Enemy(-250,220,150);
-var enemy3 = new Enemy(-500,140,125);
-var enemy4 = new Enemy(-800,140,250);
-var enemy5 = new Enemy(-200,60,150);
-var enemy6 = new Enemy(-700,60,200);
+var enemy1 = new Enemy(-650, 220, 325);
+var enemy2 = new Enemy(-250, 220, 150);
+var enemy3 = new Enemy(-500, 140, 125);
+var enemy4 = new Enemy(-800, 140, 250);
+var enemy5 = new Enemy(-200, 60, 150);
+var enemy6 = new Enemy(-700, 60, 200);
 
 var allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5, enemy6];
 

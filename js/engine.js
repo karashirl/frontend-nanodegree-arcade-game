@@ -13,7 +13,6 @@
  * the canvas' context (ctx) object globally available to make writing app.js
  * a little simpler to work with.
  */
-
 var Engine = (function(global) {
     /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
@@ -95,7 +94,7 @@ var Engine = (function(global) {
             enemy.update(dt);
         });
         player.update();
-        ctx.clearRect(0,0,canvas.width,canvas.height); // Clears top of player head remaining rendered above top tiles
+        ctx.clearRect(0, 0, canvas.width, canvas.height); // Clears top of player head remaining rendered above top tiles
     }
 
     // Resets game upon enemy-player collision
@@ -105,8 +104,8 @@ var Engine = (function(global) {
                 player.x + 83 > allEnemies[i].x &&
                 player.y < allEnemies[i].y + 50 &&
                 player.y + 50 > allEnemies[i].y) {
-                    alert('You lost!'); // Collision detected!
-                    player.reset();
+                alert('You lost!'); // Collision detected!
+                player.reset();
             }
         }
     }
@@ -122,12 +121,12 @@ var Engine = (function(global) {
          * for that particular row of the game level.
          */
         var rowImages = [
-                'images/water-block.png',   // Top row is water
-                'images/stone-block.png',   // Row 1 of 3 of stone
-                'images/stone-block.png',   // Row 2 of 3 of stone
-                'images/stone-block.png',   // Row 3 of 3 of stone
-                'images/grass-block.png',   // Row 1 of 2 of grass
-                'images/grass-block.png'    // Row 2 of 2 of grass
+                'images/water-block.png', // Top row is water
+                'images/stone-block.png', // Row 1 of 3 of stone
+                'images/stone-block.png', // Row 2 of 3 of stone
+                'images/stone-block.png', // Row 3 of 3 of stone
+                'images/grass-block.png', // Row 1 of 2 of grass
+                'images/grass-block.png' // Row 2 of 2 of grass
             ],
             numRows = 6,
             numCols = 5,
