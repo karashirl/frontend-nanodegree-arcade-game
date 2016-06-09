@@ -11,8 +11,8 @@ To win the game, the player must cross the highway and reach the water on the ot
 ### Installation
 
 1. Download the GitHub zip file or clone the repository onto your local machine:
-- [GitHub zip file](https://github.com/karashirl/frontend-nanodegree-arcade-game/archive/master.zip)
-- Clone: https://github.com/karashirl/frontend-nanodegree-arcade-game.git
+	* [GitHub zip file](https://github.com/karashirl/frontend-nanodegree-arcade-game/archive/master.zip)
+	* Clone: https://github.com/karashirl/frontend-nanodegree-arcade-game.git
 2. Open index.html in a modern browser. Do not use Internet Explorer.
 
 ### Playing the game
@@ -21,8 +21,8 @@ Use the arrow keys to move the player to the river, avoiding bugs. If a collisio
 
 ### Authors
 
-- [**Kara Anderson**](https://github.com/karashirl) - _Functionality_
-- [**Udacity**](https://github.com/udacity) - _Assets & Game Engine_
+* [**Kara Anderson**](https://github.com/karashirl) - _Functionality_
+* [**Udacity**](https://github.com/udacity) - _Assets & Game Engine_
 
 See also the list of [contributors](https://github.com/udacity/frontend-nanodegree-arcade-game/graphs/contributors) who participated in this project.
 
